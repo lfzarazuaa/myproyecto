@@ -2,6 +2,16 @@
 byte Digito1=0x00,Digito2=0x01,Digito3=0x02,Digito4=0x03,Digito5=0x04,Digito6=0x05,Digito7=0x06,Digito8=0x07;
 byte i;
 const int CS=5;
+
+void Escribir(byte Display, byte Numero){
+  SPI.transfer(Display);//Byte_Alto
+  SPI.transfer(Numero);//Byte Bajo
+  digitalWrite(CS, HIGH);
+  //__asm__("nop\n\t");
+  delayMicroseconds(100);
+  digitalWrite(CS, LOW);
+}
+
 void setup() {
   // put your setup code here, to run once:
  Serial.begin(9600);
@@ -18,24 +28,4 @@ void setup() {
 }
 
 
-void loop() {
-  if(Serial.available()>0){
-    int Opcion=Serial.parseInt();
-    if(Serial.read()==','){
-    int Opcion2=Serial.parseInt();
-        if (Serial.read()=='r'){
-         Escribir(Opcion,Opcion2);
-       }
-      }
-  }
-  
-}
-
-void Escribir(byte Display, byte Numero){
-  SPI.transfer(Display);//Byte_Alto
-  SPI.transfer(Numero);//Byte Bajo
-  digitalWrite(CS, HIGH);
-  //__asm__("nop\n\t");
-  delayMicroseconds(100);
-  digitalWrite(CS, LOW);
-}
+Este es un ejemplo rudo :---||||

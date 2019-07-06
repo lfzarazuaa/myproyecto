@@ -1,7 +1,4 @@
-#include <SPI.h>
-byte Digito1=0x00,Digito2=0x01,Digito3=0x02,Digito4=0x03,Digito5=0x04,Digito6=0x05,Digito7=0x06,Digito8=0x07;
-byte i;
-const int CS=5;
+
 
 void Escribir(byte Display, byte Numero){
   SPI.transfer(Display);//Byte_Alto
@@ -27,5 +24,10 @@ void setup() {
  Escribir(1,Digito8);
 }
 
+#include <SPI.h>
+byte Digito1=0x00,Digito2=0x01,Digito3=0x02,Digito4=0x03,Digito5=0x04,Digito6=0x05,Digito7=0x06,Digito8=0x07;
+byte i;
+const int CS=5;
 
-Este es un ejemplo rudo :---||||
+Ahora este es un mensaje a prueba.
+!Es la prueba de tu vida!
